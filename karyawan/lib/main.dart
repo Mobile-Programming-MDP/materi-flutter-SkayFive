@@ -17,6 +17,7 @@ class MyApp extends StatelessWidget {
       title: 'Daftar karyawan',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
+        scaffoldBackgroundColor: Colors.blue[200],
         useMaterial3: true,
       ),
       home: HomePage(),
