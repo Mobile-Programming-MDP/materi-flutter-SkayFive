@@ -1,0 +1,69 @@
+{
+  "project_info": {
+    "project_number": "985111101492",
+    "firebase_url": "https://first-app-39559-default-rtdb.firebaseio.com",
+    "project_id": "first-app-39559",
+    "storage_bucket": "first-app-39559.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:985111101492:android:d565a3d3f592aaee48ca61",
+        "android_client_info": {
+          "package_name": "com.example.cepuapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "985111101492-dq59j5383pf0nfbnk90t9d2erdgv3qb3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBhg1Syb4M_3Hud5bneqQZaYPFW4rBob_I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "985111101492-dq59j5383pf0nfbnk90t9d2erdgv3qb3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:985111101492:android:033c177b9dd68b1648ca61",
+        "android_client_info": {
+          "package_name": "com.example.daftarbelanja"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "985111101492-dq59j5383pf0nfbnk90t9d2erdgv3qb3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBhg1Syb4M_3Hud5bneqQZaYPFW4rBob_I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "985111101492-dq59j5383pf0nfbnk90t9d2erdgv3qb3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
