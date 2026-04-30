@@ -1,6 +1,9 @@
 import 'package:cepuapp/screens/add_post_screen.dart';
 import 'package:cepuapp/screens/sign_in_screen.dart';
+import 'package:cepuapp/services/post_service.dart';
+import 'package:cepuapp/widgets/post_list_item.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -29,6 +32,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final currentUserId = FirebaseAuth.instance.currentUser?.uid;
     return Scaffold(
       appBar: AppBar(
         title: const Text("Home Screen"),
@@ -56,8 +60,39 @@ class _HomeScreenState extends State<HomeScreen> {
             FirebaseAuth.instance.currentUser!.displayName!,
             style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
           ),
-          SizedBox(height: 16.0),
-          const Center(child: Text("You Have Been Signed In!")),
+          const SizedBox(height: 8.0),
+          const Divider(),
+          Expanded(
+            child: StreamBuilder(
+              stream: PostService.getPostList(),
+              builder: (context, snapshot) {
+                if (snapshot.connectionState == ConnectionState.waiting) {
+                  return const Center(child: CircularProgressIndicator());
+                }
+                if (snapshot.hasError) {
+                  return Center(child: Text('Error : ${snapshot.error}'));
+                }
+                final posts = snapshot.data ?? [];
+                if (posts.isEmpty) {
+                  return const Center(child: Text('No posts Yet'));
+                }
+                return RefreshIndicator(
+                  onRefresh: () async {},
+                  child: ListView.builder(
+                    itemCount: posts.length,
+                    itemBuilder: (context, index) {
+                      final post = posts[index];
+                      final isOwner =
+                          currentUserId != null && post.userId == currentUserId;
+
+                      return PostListItem(post: post, isOwner: isOwner);
+                    },
+                  ),
+                );
+              },
+            ),
+          ),
+          // const Center(child: Text("You Have Been Signed In!")),
         ],
       ),
       floatingActionButton: FloatingActionButton(

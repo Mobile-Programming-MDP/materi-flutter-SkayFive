@@ -262,7 +262,7 @@ class _AddPostScreenState extends State<AddPostScreen> {
                   ? null
                   : _getLocation,
               child: Text(
-                _isGettingLocation ? 'Mengambil lokasi...' : 'Get Location,',
+                _isGettingLocation ? 'Mengambil lokasi...' : 'Get Location',
               ),
             ),
             const SizedBox(height: 8),
